@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const onBoarding = () => {
+const Search = () => {
   return (
     <View>
-      <Text>onBoarding</Text>
+      <Text>S</Text>
     </View>
   )
 }
 
-export default onBoarding
+export default Search
