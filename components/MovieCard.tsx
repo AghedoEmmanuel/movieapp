@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import { Link } from 'expo-router'
+import { icons } from '@/constants/icons'
 
 const MovieCard = ({id,poster_path,title,vote_average,release_date}:Movie) => {
   return (
@@ -15,7 +16,20 @@ const MovieCard = ({id,poster_path,title,vote_average,release_date}:Movie) => {
             className='w-full rounded-lg h-52'
             resizeMode='cover'
             />
-            <Text className='font-bold text-sm text-white mt-2'>{title}</Text>
+            <Text className='font-bold text-sm text-white mt-2' numberOfLines={1}>{title}</Text>
+
+            <View className='flex-row items-center justify-start gap-x-1'>
+                <Image 
+                source={icons.star}
+                className='size-4'
+                />
+                <Text className='text-xs text-white uppercase font-bold'>{Math.round(vote_average/2)}</Text>
+            </View>
+
+            <View className='flex-row items-center justify-between'>
+                <Text className='text-xs text-light-300 font-medium mt-1'>{release_date?.split('-')[0]}</Text>
+                <Text className='text-xs text-light-300 font-medium uppercase'>Movie</Text>
+            </View>
         </TouchableOpacity>
     </Link>
   )
